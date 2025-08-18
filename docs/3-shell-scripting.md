@@ -98,14 +98,14 @@ echo "My name is $name and age is $age"
 
 * **Special Variables**
 
-```bash
-$0   # Script name
-$1   # First argument
-$#   # Number of arguments
-$@   # All arguments
-$?   # Exit status of last command
-$$   # PID of current script
-```
+  ```bash
+  $0   # Script name
+  $1   # First argument
+  $#   # Number of arguments
+  $@   # All arguments
+  $?   # Exit status of last command
+  $$   # PID of current script
+  ```
 
 ---
 
