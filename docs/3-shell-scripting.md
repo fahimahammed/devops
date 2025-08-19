@@ -92,9 +92,9 @@ age=25
 
 * **Using Variables**
 
-```bash
-echo "My name is $name and age is $age"
-```
+  ```bash
+  echo "My name is $name and age is $age"
+  ```
 
 * **Special Variables**
 
