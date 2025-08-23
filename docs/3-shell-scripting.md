@@ -1,4 +1,4 @@
-# **Shell Scripting
+# **Shell Scripting**
 ---
 
 ## **1. Introduction to Shell Scripting**
