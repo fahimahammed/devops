@@ -1,83 +1,115 @@
-Sure! Here’s a **complete list of commands** you used (or need to use) to complete the **File Permissions and Ownership** task from start to finish:
+# DevOps & Linux Tasks Solutions
+
+## Task 1: Log File Filtering
+
+**Problem:**
+Extract `ERROR` log lines from an application log file.
+
+**Solution:**
+
+1. **Create `app.log`** with sample log messages:
+
+```text
+2025-09-17 10:10:23 INFO User logged in
+2025-09-18 10:11:05 ERROR Database connection failed
+2025-09-19 10:11:45 DEBUG Cache refreshed
+2025-09-19 10:12:10 ERROR Service unavailable
+2025-09-19 10:13:00 INFO User requested dashboard
+2025-09-19 10:13:30 DEBUG API response time: 120ms
+2025-09-19 10:14:02 ERROR Payment gateway timeout
+2025-09-19 10:15:10 INFO User logged out
+2025-09-19 10:15:30 DEBUG Session cleared
+2025-09-19 10:16:00 INFO Backup completed successfully
+```
+
+2. **Bash script `find_errors.sh`:**
+
+[find_errors.sh](./task-1/find_errors.sh)
+
+3. **Run the script:**
+
+```bash
+chmod +x find_errors.sh
+./find_errors.sh
+```
+
+**Output:**
+
+```text
+2025-09-18 10:11:05 ERROR Database connection failed
+2025-09-19 10:12:10 ERROR Service unavailable
+2025-09-19 10:14:02 ERROR Payment gateway timeout
+```
 
 ---
 
-### 1️⃣ Create the project directory
+## Task 2: Linux File Permissions and Ownership
+
+**Problem:**
+Practice creating files, modifying permissions, and changing ownership.
+
+**Solution Steps:**
+
+1. **Create directory and file:**
 
 ```bash
 mkdir project
-```
-
----
-
-### 2️⃣ Create the file and add content
-
-```bash
 echo "This is a sample note." > project/notes.txt
 ```
 
----
-
-### 3️⃣ Check default permissions
+2. **Check default permissions:**
 
 ```bash
 ls -l project/notes.txt
+# Output might be: -rw-r--r--  1 fahimahammed  staff  23 Sep 19 20:41 project/notes.txt
 ```
 
----
-
-### 4️⃣ Remove write permission for group
+3. **Modify file permissions:**
 
 ```bash
-chmod g-w project/notes.txt
+sudo chmod u-w project/notes.txt   # remove write permission for owner
+sudo chmod u+x project/notes.txt   # add execute permission for owner
+sudo chmod g-w project/notes.txt   # remove write permission for group 
 ```
 
----
-
-### 5️⃣ Add execute permission for owner
+4. **Change ownership to root:**
 
 ```bash
-chmod u+x project/notes.txt
+sudo chown root:staff project/notes.txt
 ```
 
----
-
-### 6️⃣ Change ownership to root
-
-```bash
-sudo chown root project/notes.txt
-```
-
----
-
-### 7️⃣ (Optional) Remove write permission for owner (if needed)
-
-```bash
-sudo chmod u-w project/notes.txt
-```
-
----
-
-### 8️⃣ (Optional) Change group to `user` (to fully match expected output)
-
-```bash
-sudo chown root:user project/notes.txt
-```
-
----
-
-### 9️⃣ Final verification
+5. **Verify final permissions:**
 
 ```bash
 ls -l project/notes.txt
-```
-
-Expected output:
-
-```
--r-xr--r-- 1 root user 23 Sep 19 20:25 project/notes.txt
+# Expected output:
+-r-xr--r--  1 root  staff  22 Sep 19 20:48 project/notes.txt
 ```
 
 ---
 
-If you want, I can **combine all of these into a single bash script** so you can run everything at once without typing each command. Do you want me to do that?
+## Task 3: Bash Script – Read and Print Email & Password
+
+**Problem:**
+Prompt user input for email and password, then display them.
+
+**Solution:**
+
+[read_credientials.sh](./task-3/read_credentials.sh)
+
+**Explanation:**
+
+* `read -p` prompts for input.
+* `read -s` hides the input (useful for passwords).
+* The script prints a confirmation with the entered email and password.
+
+**Sample Run:**
+
+```text
+Enter your email: user@example.com
+Enter your password: 
+Your email is: user@example.com
+Your password is: mysecretpassword
+```
+
+---
