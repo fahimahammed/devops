@@ -1,0 +1,10 @@
+2025-09-17 10:10:23 INFO User logged in
+2025-09-18 10:11:05 ERROR Database connection failed
+2025-09-19 10:11:45 DEBUG Cache refreshed
+2025-09-19 10:12:10 ERROR Service unavailable
+2025-09-19 10:13:00 INFO User requested dashboard
+2025-09-19 10:13:30 DEBUG API response time: 120ms
+2025-09-19 10:14:02 ERROR Payment gateway timeout
+2025-09-19 10:15:10 INFO User logged out
+2025-09-19 10:15:30 DEBUG Session cleared
+2025-09-19 10:16:00 INFO Backup completed successfully
